@@ -1,0 +1,19 @@
+.card img {
+  height: 220px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.card {
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.modal-content {
+  border-radius: 12px;
+}
