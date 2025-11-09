@@ -1,1 +1,49 @@
-<h1>Welcome all!!!!!</h1>
+<div class="container my-4">
+  <div class="row g-4">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let product of products">
+      <div class="card h-100 text-center shadow-sm">
+        <img [src]="product.image" class="card-img-top img-fluid" alt="{{ product.title }}" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text text-truncate" title="{{ product.description }}">
+            {{ product.description }}
+          </p>
+          <button class="btn btn-primary mt-auto" (click)="openEditModal(product)">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Description</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea
+          [(ngModel)]="updatedDescription"
+          class="form-control"
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-success" (click)="saveDescription()">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
